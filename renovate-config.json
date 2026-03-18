@@ -1,0 +1,48 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Shared Renovate preset for all CartSnitch repos",
+  "extends": [
+    "config:recommended"
+  ],
+  "labels": ["dependencies"],
+  "schedule": ["before 7am on Monday"],
+  "timezone": "America/New_York",
+  "automerge": true,
+  "automergeType": "pr",
+  "major": {
+    "automerge": false
+  },
+  "packageRules": [
+    {
+      "description": "Group ESLint packages",
+      "matchPackagePatterns": ["^eslint", "^@typescript-eslint/"],
+      "groupName": "eslint"
+    },
+    {
+      "description": "Group TypeScript packages",
+      "matchPackagePatterns": ["^typescript", "^ts-"],
+      "groupName": "typescript"
+    },
+    {
+      "description": "Group testing packages",
+      "matchPackagePatterns": ["^vitest", "^@vitest/", "^jest", "^@jest/", "^@testing-library/"],
+      "groupName": "testing"
+    },
+    {
+      "description": "Group Playwright packages",
+      "matchPackagePatterns": ["^playwright", "^@playwright/"],
+      "groupName": "playwright"
+    },
+    {
+      "description": "Group Docker-related updates",
+      "matchDatasources": ["docker"],
+      "groupName": "docker"
+    },
+    {
+      "description": "Group Kubernetes/Helm updates",
+      "matchPackagePatterns": ["^helm", "^k8s"],
+      "matchDatasources": ["helm"],
+      "groupName": "kubernetes"
+    }
+  ]
+}
