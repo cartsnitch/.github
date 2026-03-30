@@ -11,39 +11,40 @@
 
 </div>
 
-<h3 align="center">Your vigilant shopping companion.</h3>
+<h3 align="center">Save money on every grocery trip.</h3>
 
 <p align="center">
-  <a href="#">Documentation</a>
+  CartSnitch finds deals you'd miss. Never overpay for groceries again.
+</p>
+
+<p align="center">
+  <a href="https://cartsnitch.farh.net">Get Started</a>
   ·
-  <a href="https://github.com/cartsnitch/.github/issues">Report an Issue</a>
+  <a href="https://cartsnitch.farh.net/docs">Help & Guides</a>
   ·
-  <a href="#">Contributing</a>
+  <a href="https://github.com/cartsnitch/.github/issues">Feedback</a>
 </p>
 
 ---
 
-## Overview
+## How It Works
 
-CartSnitch is a modern, TypeScript-powered tool for monitoring and tracking shopping carts, price changes, and availability across multiple retailers.
+CartSnitch monitors prices and deals across your favorite grocery stores in real time. Save $50+ per month with deals you actually use.
 
-## Tech Stack
+### For Shoppers
+- **Real-time deal alerts** — Never miss a sale on items you buy
+- **Smart coupon matching** — One tap to find coupons for your cart
+- **Grocery tracking** — Monitor prices and plan your shopping
 
-| Category | Technologies |
-|----------|-------------|
-| Language | TypeScript |
-| Runtime | Node.js |
-| Testing | Vitest, Playwright |
-| Infrastructure | Docker, Kubernetes |
+### For Developers
+CartSnitch is built on open, modern technology and welcomes community contributions. Explore our repositories:
 
-## Our Projects
-
-| Project | Description |
-|---------|-------------|
+| Repository | Purpose |
+|------------|---------|
 | [cartsnitch](https://github.com/cartsnitch/cartsnitch) | Main application |
 | [api](https://github.com/cartsnitch/api) | Backend API |
-| [agents](https://github.com/cartsnitch/agents) | Agent services |
-| [receiptwitness](https://github.com/cartsnitch/receiptwitness) | Receipt validation |
+| [common](https://github.com/cartsnitch/common) | Shared libraries |
+| [infra](https://github.com/cartsnitch/infra) | Infrastructure |
 
 ---
 
