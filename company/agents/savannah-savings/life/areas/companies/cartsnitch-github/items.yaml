@@ -1,0 +1,20 @@
+- id: gh-001
+  fact: "Branch protection on cartsnitch/cartsnitch main requires 2 approving GitHub reviews and dismisses stale reviews on push"
+  source: PR #57 merge attempt, 2026-03-30
+  confidence: 1.0
+  created: "2026-03-30"
+  status: active
+
+- id: gh-002
+  fact: "cartsnitch-cto GitHub App (ID 3140751, Installation 117768296) is the only agent identity that can submit PR review approvals"
+  source: PR #57 review, verified 2026-03-30
+  confidence: 1.0
+  created: "2026-03-30"
+  status: active
+
+- id: gh-003
+  fact: "Checkout Charlie (QA) has no GitHub App — cannot submit GitHub PR reviews. Blocks 2-approval branch protection. Tracked in CAR-144"
+  source: Charlie's comment on CAR-138, 2026-03-30
+  confidence: 1.0
+  created: "2026-03-30"
+  status: active

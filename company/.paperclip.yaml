@@ -1,0 +1,470 @@
+schema: "paperclip/v1"
+agents:
+  barcode-betty:
+    role: "engineer"
+    icon: "code"
+    capabilities: "Principal engineer responsible for core product engineering. Designs and implements features that help consumers maximize grocery savings."
+    adapter:
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+      type: "claude_local"
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 14400
+        maxConcurrentRuns: 1
+    inputs:
+      env:
+        AGENT_HOME:
+          description: "Optional default for AGENT_HOME on agent barcode-betty"
+          kind: "plain"
+          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/71f37521-8e62-4d27-bd9c-cfd52b5b3a07/instructions"
+          portability: "system_dependent"
+          requirement: "optional"
+        ANTHROPIC_AUTH_TOKEN:
+          description: "Optional default for ANTHROPIC_AUTH_TOKEN on agent barcode-betty"
+          kind: "secret"
+          default: ""
+          requirement: "optional"
+        ANTHROPIC_BASE_URL:
+          description: "Optional default for ANTHROPIC_BASE_URL on agent barcode-betty"
+          kind: "plain"
+          default: "https://api.minimax.io/anthropic"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_HAIKU_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent barcode-betty"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_OPUS_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent barcode-betty"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_SONNET_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent barcode-betty"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_MODEL:
+          description: "Optional default for ANTHROPIC_MODEL on agent barcode-betty"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_SMALL_FAST_MODEL:
+          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent barcode-betty"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        API_TIMEOUT_MS:
+          description: "Optional default for API_TIMEOUT_MS on agent barcode-betty"
+          kind: "plain"
+          default: "3000000"
+          requirement: "optional"
+        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
+          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent barcode-betty"
+          kind: "plain"
+          default: "1"
+          requirement: "optional"
+        GITHUB_APP_ID:
+          description: "Optional default for GITHUB_APP_ID on agent barcode-betty"
+          kind: "plain"
+          default: "3140849"
+          requirement: "optional"
+        GITHUB_APP_INSTALLATION_ID:
+          description: "Optional default for GITHUB_APP_INSTALLATION_ID on agent barcode-betty"
+          kind: "plain"
+          default: "117770647"
+          requirement: "optional"
+        GITHUB_APP_PEM_FILE:
+          description: "Optional default for GITHUB_APP_PEM_FILE on agent barcode-betty"
+          kind: "plain"
+          default: "/secrets/cartsnitch/cartsnitch-engineer.pem"
+          portability: "system_dependent"
+          requirement: "optional"
+  checkout-charlie:
+    role: "qa"
+    icon: "bug"
+    capabilities: "Senior QA engineer responsible for test strategy, quality assurance, and release validation. Ensures the product reliably delivers value to grocery shoppers."
+    adapter:
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+      type: "claude_local"
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 14400
+        maxConcurrentRuns: 1
+    inputs:
+      env:
+        AGENT_HOME:
+          description: "Optional default for AGENT_HOME on agent checkout-charlie"
+          kind: "plain"
+          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/b8b294e3-a12d-4bff-b321-6f020792b21c/instructions"
+          portability: "system_dependent"
+          requirement: "optional"
+        ANTHROPIC_AUTH_TOKEN:
+          description: "Optional default for ANTHROPIC_AUTH_TOKEN on agent checkout-charlie"
+          kind: "secret"
+          default: ""
+          requirement: "optional"
+        ANTHROPIC_BASE_URL:
+          description: "Optional default for ANTHROPIC_BASE_URL on agent checkout-charlie"
+          kind: "plain"
+          default: "https://api.minimax.io/anthropic"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_HAIKU_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent checkout-charlie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_OPUS_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent checkout-charlie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_SONNET_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent checkout-charlie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_MODEL:
+          description: "Optional default for ANTHROPIC_MODEL on agent checkout-charlie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_SMALL_FAST_MODEL:
+          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent checkout-charlie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        API_TIMEOUT_MS:
+          description: "Optional default for API_TIMEOUT_MS on agent checkout-charlie"
+          kind: "plain"
+          default: "3000000"
+          requirement: "optional"
+        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
+          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent checkout-charlie"
+          kind: "plain"
+          default: "1"
+          requirement: "optional"
+        GITHUB_APP_ID:
+          description: "Optional default for GITHUB_APP_ID on agent checkout-charlie"
+          kind: "plain"
+          default: "3140909"
+          requirement: "optional"
+        GITHUB_APP_INSTALLATION_ID:
+          description: "Optional default for GITHUB_APP_INSTALLATION_ID on agent checkout-charlie"
+          kind: "plain"
+          default: "117772026"
+          requirement: "optional"
+        GITHUB_APP_PEM_FILE:
+          description: "Optional default for GITHUB_APP_PEM_FILE on agent checkout-charlie"
+          kind: "plain"
+          default: "/secrets/cartsnitch/cartsnitch-qa.pem"
+          portability: "system_dependent"
+          requirement: "optional"
+  coupon-carl:
+    role: "ceo"
+    icon: "crown"
+    adapter:
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+      type: "claude_local"
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 28800
+        maxConcurrentRuns: 1
+    permissions:
+      canCreateAgents: true
+    inputs:
+      env:
+        AGENT_HOME:
+          description: "Optional default for AGENT_HOME on agent coupon-carl"
+          kind: "plain"
+          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/f2395b62-cb26-4595-b026-d506fde1c2c1/instructions"
+          portability: "system_dependent"
+          requirement: "optional"
+        GITHUB_APP_ID:
+          description: "Optional default for GITHUB_APP_ID on agent coupon-carl"
+          kind: "plain"
+          default: "3140629"
+          requirement: "optional"
+        GITHUB_APP_INSTALLATION_ID:
+          description: "Optional default for GITHUB_APP_INSTALLATION_ID on agent coupon-carl"
+          kind: "plain"
+          default: "117765779"
+          requirement: "optional"
+        GITHUB_APP_PEM_FILE:
+          description: "Optional default for GITHUB_APP_PEM_FILE on agent coupon-carl"
+          kind: "plain"
+          default: "/secrets/cartsnitch/cartsnitch-ceo.pem"
+          portability: "system_dependent"
+          requirement: "optional"
+  markdown-martha:
+    role: "cmo"
+    icon: "target"
+    capabilities: "Leads all marketing initiatives, brand, content, and customer research. Owns public messaging and market positioning for CartSnitch."
+    adapter:
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-haiku-4-5-20251001"
+      type: "claude_local"
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 14400
+        maxConcurrentRuns: 1
+    inputs:
+      env:
+        AGENT_HOME:
+          description: "Optional default for AGENT_HOME on agent markdown-martha"
+          kind: "plain"
+          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/9becc57b-c4a8-4420-9f73-c037ba26b410/instructions"
+          portability: "system_dependent"
+          requirement: "optional"
+        GITHUB_APP_ID:
+          description: "Optional default for GITHUB_APP_ID on agent markdown-martha"
+          kind: "plain"
+          default: "3140849"
+          requirement: "optional"
+        GITHUB_APP_INSTALLATION_ID:
+          description: "Optional default for GITHUB_APP_INSTALLATION_ID on agent markdown-martha"
+          kind: "plain"
+          default: "117770647"
+          requirement: "optional"
+        GITHUB_APP_PEM_FILE:
+          description: "Optional default for GITHUB_APP_PEM_FILE on agent markdown-martha"
+          kind: "plain"
+          default: "/secrets/cartsnitch/cartsnitch-engineer.pem"
+          portability: "system_dependent"
+          requirement: "optional"
+        MINIMAX_API_HOST:
+          description: "Optional default for MINIMAX_API_HOST on agent markdown-martha"
+          kind: "plain"
+          default: "https://api.minimax.io"
+          requirement: "optional"
+        MINIMAX_API_KEY:
+          description: "Optional default for MINIMAX_API_KEY on agent markdown-martha"
+          kind: "secret"
+          default: ""
+          requirement: "optional"
+  rollback-rhonda:
+    role: "qa"
+    icon: "microscope"
+    capabilities: "User Acceptance Tester — validates features from an end-user perspective using browser automation before anything reaches production"
+    adapter:
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+      type: "claude_local"
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 300
+        maxConcurrentRuns: 1
+    inputs:
+      env:
+        AGENT_HOME:
+          description: "Optional default for AGENT_HOME on agent rollback-rhonda"
+          kind: "plain"
+          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/1fc33bd9-308c-4abf-a355-87d12b6b0064/instructions"
+          portability: "system_dependent"
+          requirement: "optional"
+        ANTHROPIC_AUTH_TOKEN:
+          description: "Optional default for ANTHROPIC_AUTH_TOKEN on agent rollback-rhonda"
+          kind: "secret"
+          default: ""
+          requirement: "optional"
+        ANTHROPIC_BASE_URL:
+          description: "Optional default for ANTHROPIC_BASE_URL on agent rollback-rhonda"
+          kind: "plain"
+          default: "https://api.minimax.io/anthropic"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_HAIKU_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent rollback-rhonda"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_OPUS_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent rollback-rhonda"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_SONNET_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent rollback-rhonda"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_MODEL:
+          description: "Optional default for ANTHROPIC_MODEL on agent rollback-rhonda"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_SMALL_FAST_MODEL:
+          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent rollback-rhonda"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        API_TIMEOUT_MS:
+          description: "Optional default for API_TIMEOUT_MS on agent rollback-rhonda"
+          kind: "plain"
+          default: "3000000"
+          requirement: "optional"
+        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
+          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent rollback-rhonda"
+          kind: "plain"
+          default: "1"
+          requirement: "optional"
+        GITHUB_APP_ID:
+          description: "Optional default for GITHUB_APP_ID on agent rollback-rhonda"
+          kind: "plain"
+          default: "3140909"
+          requirement: "optional"
+        GITHUB_APP_INSTALLATION_ID:
+          description: "Optional default for GITHUB_APP_INSTALLATION_ID on agent rollback-rhonda"
+          kind: "plain"
+          default: "117772026"
+          requirement: "optional"
+        GITHUB_APP_PEM_FILE:
+          description: "Optional default for GITHUB_APP_PEM_FILE on agent rollback-rhonda"
+          kind: "plain"
+          default: "/secrets/cartsnitch/cartsnitch-qa.pem"
+          portability: "system_dependent"
+          requirement: "optional"
+  savannah-savings:
+    role: "cto"
+    icon: "cpu"
+    capabilities: "Owns technical roadmap, system architecture, engineering execution, and code quality. First engineer. Builds the product that helps consumers get the most value from grocery spending."
+    adapter:
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-opus-4-6"
+      type: "claude_local"
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 14400
+        maxConcurrentRuns: 1
+    inputs:
+      env:
+        AGENT_HOME:
+          description: "Optional default for AGENT_HOME on agent savannah-savings"
+          kind: "plain"
+          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/22731e25-f40f-48bd-a16e-28e1bbef5946/instructions"
+          portability: "system_dependent"
+          requirement: "optional"
+        GITHUB_APP_ID:
+          description: "Optional default for GITHUB_APP_ID on agent savannah-savings"
+          kind: "plain"
+          default: "3140751"
+          requirement: "optional"
+        GITHUB_APP_INSTALLATION_ID:
+          description: "Optional default for GITHUB_APP_INSTALLATION_ID on agent savannah-savings"
+          kind: "plain"
+          default: "117768296"
+          requirement: "optional"
+        GITHUB_APP_PEM_FILE:
+          description: "Optional default for GITHUB_APP_PEM_FILE on agent savannah-savings"
+          kind: "plain"
+          default: "/secrets/cartsnitch/cartsnitch-cto.pem"
+          portability: "system_dependent"
+          requirement: "optional"
+  stockboy-steve:
+    role: "engineer"
+    icon: "code"
+    capabilities: "Senior engineer focused on reliable feature implementation, bug fixes, and shipping production-quality code"
+    adapter:
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+      type: "claude_local"
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 300
+    inputs:
+      env:
+        AGENT_HOME:
+          description: "Optional default for AGENT_HOME on agent stockboy-steve"
+          kind: "plain"
+          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/01dfbf79-c93d-4224-a7d9-05b2779e425e/instructions"
+          portability: "system_dependent"
+          requirement: "optional"
+        ANTHROPIC_AUTH_TOKEN:
+          description: "Optional default for ANTHROPIC_AUTH_TOKEN on agent stockboy-steve"
+          kind: "secret"
+          default: ""
+          requirement: "optional"
+        ANTHROPIC_BASE_URL:
+          description: "Optional default for ANTHROPIC_BASE_URL on agent stockboy-steve"
+          kind: "plain"
+          default: "https://api.minimax.io/anthropic"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_HAIKU_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent stockboy-steve"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_OPUS_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent stockboy-steve"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_SONNET_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent stockboy-steve"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_MODEL:
+          description: "Optional default for ANTHROPIC_MODEL on agent stockboy-steve"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_SMALL_FAST_MODEL:
+          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent stockboy-steve"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        API_TIMEOUT_MS:
+          description: "Optional default for API_TIMEOUT_MS on agent stockboy-steve"
+          kind: "plain"
+          default: "3000000"
+          requirement: "optional"
+        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
+          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent stockboy-steve"
+          kind: "plain"
+          default: "1"
+          requirement: "optional"
+        GITHUB_APP_ID:
+          description: "Optional default for GITHUB_APP_ID on agent stockboy-steve"
+          kind: "plain"
+          default: "3140849"
+          requirement: "optional"
+        GITHUB_APP_INSTALLATION_ID:
+          description: "Optional default for GITHUB_APP_INSTALLATION_ID on agent stockboy-steve"
+          kind: "plain"
+          default: "117770647"
+          requirement: "optional"
+        GITHUB_APP_PEM_FILE:
+          description: "Optional default for GITHUB_APP_PEM_FILE on agent stockboy-steve"
+          kind: "plain"
+          default: "/secrets/cartsnitch/cartsnitch-engineer.pem"
+          portability: "system_dependent"
+          requirement: "optional"
+company:
+  brandColor: "#0061ff"
+  logoPath: "images/company-logo.png"
+sidebar:
+  agents:
+    - "coupon-carl"
+    - "markdown-martha"
+    - "savannah-savings"
+    - "barcode-betty"
+    - "checkout-charlie"
+    - "rollback-rhonda"
+    - "stockboy-steve"
