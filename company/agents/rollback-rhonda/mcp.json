@@ -1,9 +1,0 @@
-[
-  {
-    "command": "node",
-    "args": ["/tmp/mcp-playwright-bridge.js"],
-    "env": {
-      "PLAYWRIGHT_MCP_URL": "http://playwright-cartsnitch:8931/mcp"
-    }
-  }
-]

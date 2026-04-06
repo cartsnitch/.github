@@ -12,7 +12,7 @@
 |------|-------|
 | Dev URL | `https://cartsnitch.dev.farh.net` |
 | Production URL | `https://cartsnitch.farh.net` — **NEVER test here** |
-| Playwright MCP | `playwright-cartsnitch` at `http://playwright-cartsnitch:8931/mcp` |
+| Playwright MCP | `playwright` at `http://playwright:8931/mcp` |
 | Mobile viewport | 375 x 812 (iPhone — mobile-first PWA) |
 | Auth provider | Authentik at `https://auth.farh.net` |
 
