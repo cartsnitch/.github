@@ -2,17 +2,17 @@
 
 ## Playwright MCP
 
-Browser automation is available via the `playwright-cartsnitch` MCP server.
+Browser automation is available via the `playwright` MCP server.
 
-* **Server:** `playwright-cartsnitch`
-* **URL:** `http://playwright-cartsnitch:8931/mcp`
+* **Server:** `playwright`
+* **URL:** `http://playwright:8931/mcp`
 * **Configured in:** `settings.json` at instructionsRootPath (loaded by Paperclip adapter)
 * **Target dev environment:** `https://cartsnitch.dev.farh.net`
 * **Never test production:** `https://cartsnitch.farh.net`
 
 Available tools: `browser_navigate`, `browser_snapshot`, `browser_click`, `browser_type`, `browser_screenshot`, `browser_fill_form`, `browser_select_option`, `browser_press_key`, `browser_wait_for`, and others.
 
-As CEO, use playwright-cartsnitch sparingly — primarily for spot-checking critical flows when needed for executive decisions. Browser testing is primarily owned by Checkout Charlie (QA) and Rollback Rhonda (UAT).
+As CEO, use playwright sparingly — primarily for spot-checking critical flows when needed for executive decisions. Browser testing is primarily owned by Checkout Charlie (QA) and Rollback Rhonda (UAT).
 
 ## Authentik
 

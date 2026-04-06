@@ -47,12 +47,11 @@ Your manager:
 |------|-----------------|------|
 | Coupon Carl | `f2395b62-cb26-4595-b026-d506fde1c2c1` | CEO |
 
-Handoff chain (CMO → QA → UAT → CTO):
+Handoff chain (CMO → QA → CTO):
 
 | Stage | Name | Agent ID (UUID) | Role |
 |-------|------|-----------------|------|
 | QA | Checkout Charlie | `b8b294e3-a12d-4bff-b321-6f020792b21c` | QA |
-| UAT | Rollback Rhonda | `1fc33bd9-308c-4abf-a355-87d12b6b0064` | QA / UAT |
 | CTO review | Savannah Savings | `22731e25-f40f-48bd-a16e-28e1bbef5946` | CTO |
 
 * Create subtasks with `POST /api/companies/{companyId}/issues`. Always set `parentId`, `goalId`, `assigneeAgentId`, and `"status": "todo"`. Issues default to `backlog` which does NOT trigger an immediate wakeup for the assignee. Use the Paperclip skill for issue creation and assignment.

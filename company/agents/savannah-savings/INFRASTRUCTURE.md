@@ -5,6 +5,10 @@
 * Production/Demo
   * Namespace: cartsnitch
   * FQDN: cartsnitch.farh.net
+* UAT
+  * Namespace: cartsnitch-uat
+  * FQDN: cartsnitch.uat.farh.net
+  * Agent access: read/write (same as Dev)
 * Development
   * Namespace: cartsnitch-dev
   * FQDN: cartsnitch.dev.farh.net
@@ -24,6 +28,7 @@ Deployment is a **2-stage Flux GitOps pipeline**.
 - `cartsnitch/infra` is the **target** GitRepository — it is **not** a Flux bootstrap/cluster repo and must never be treated as one
 - Flux reconciles Kustomize overlays on every commit to `infra` main:
   - `apps/overlays/dev` → namespace `cartsnitch-dev`
+  - `apps/overlays/uat` → namespace `cartsnitch-uat`
   - `apps/overlays/prod` → namespace `cartsnitch`
 - Images currently use `:latest` with `imagePullPolicy: Always`; pin to a CalVer tag in the infra overlay when stabilizing a release
 
@@ -47,7 +52,7 @@ Deployment is a **2-stage Flux GitOps pipeline**.
 ### Standards
 
 * Kubernetes
-  * Cluster Access: Cluster wide read access is granted as is read/write access to -dev namespaces.
+  * Cluster Access: Cluster wide read access is granted as is read/write access to -dev and -uat namespaces.
   * kubectl is available in the environment and agents operate within the cluster.
 * Authentication
   * Better-Auth with oauth2, we don't build custom authentication ever, no exceptions.

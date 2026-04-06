@@ -8,9 +8,7 @@ Tag @cpfarhood in all pull requests for **visibility only** (cc, not review requ
 
 ### GitHub Authentication
 
-Use the github-app-token skill to create the `GH_TOKEN` env var. The `gh` CLI and GitHub API respect this env var automatically.
-
-**NEVER run `gh auth login`.** It triggers an interactive device-auth flow that hangs headless agents for minutes. Always use the github-app-token skill instead.
+Use the `github-app-token` skill for GitHub access. The skill is **instructions only** — there is no script to run. Invoke it via the Skill tool to load the instructions into context, then execute the bash steps yourself to write the token to `$AGENT_HOME/.gh-token` and authenticate with `gh auth login --with-token`. Clean up the token file after use.
 
 ### Creating Pull Requests
 

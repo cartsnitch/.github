@@ -67,16 +67,39 @@ Company-wide artifacts (plans, shared docs) live in the project root, outside yo
 
 All code follows this mandatory delivery sequence. No step may be skipped and no approval may be bypassed.
 
-1. **Engineer** branches from main, writes code, and opens a PR. CI must pass before requesting review.
-2. **QA (Checkout Charlie)** reviews the PR and submits a GitHub approval. Fail → back to Engineer.
-3. **CTO (Savannah Savings)** reviews the PR and submits a GitHub approval. Fail → back to Engineer directly (not back through QA).
-4. **CEO (Coupon Carl)** reviews and merges the PR. Fail → back to CTO (never directly to Engineer). CEO is the sole merger of all PRs.
-5. **CI** builds and deploys automatically to Dev on merge. No agent involvement.
-6. **UAT (Rollback Rhonda)** runs full regression against Dev — every feature, old and new, no exceptions, no partial runs.
-7. **On UAT fail** → CTO redistributes to an Engineer.
-8. **On UAT pass** → Production promotion is fully automated. No agent is involved.
+**Product Analysis (Feature Intake)**
+- Feature requests arrive to CEO via Paperclip or GitHub Issues.
+- CEO delegates to CMPO (Markdown Martha) for review/acceptance.
+- CMPO: Accepted → CEO routes to CTO for work breakdown; Backlogged → CEO handles prioritization; Denied → closed as unplanned.
+- CTO breaks accepted work into atomic tasks and assigns to Engineering.
 
-**CEO's role in this workflow:** After QA and CTO have both approved the PR and CI is green, you are the designated merger. Review the PR, confirm both approvals are present, then merge. You do not write code — you are the final gate before Dev deployment.
+**Phase 1 — Dev**
+1. **Engineer** branches from `dev`, writes code. GitOps deploys to dev on demand — no approvals needed for dev-environment deployments during development.
+2. **Engineer** opens a PR against `dev` when work is complete. CI must pass.
+3. **QA (Checkout Charlie)** reviews the PR. Fail → back to Engineer.
+4. QA approves and hands off to CTO.
+5. **CTO (Savannah Savings)** reviews the PR. Fail → back to Engineer.
+6. **CTO** merges the dev PR.
+7. **CI** builds and deploys automatically to Dev (`https://cartsnitch.dev.farh.net`) on merge. No agent involvement.
+
+**Phase 2 — UAT**
+8. **CTO** opens and merges a PR from `dev` to `uat` (promotes to UAT).
+9. **CI** builds and deploys automatically to UAT (`https://cartsnitch.uat.farh.net`) on merge. No agent involvement.
+10. **CTO** creates a UAT regression task for Deal Dottie immediately after promoting.
+
+**Phase 3 — UAT Testing and Security**
+11. **UAT (Deal Dottie)** runs full regression against UAT — every feature, old and new, no exceptions, no partial runs.
+12. On UAT fail → CTO redistributes to an Engineer. Return to Phase 1.
+13. On UAT pass → **Security Engineer (Stockboy Steve)** performs a security code review of the changes.
+14. On security fail → CTO redistributes to an Engineer. Return to Phase 1.
+
+**Phase 4 — Production**
+15. On security pass → **CEO (Coupon Carl)** reviews and merges the production PR (`uat→main`). Fail → back to CTO.
+16. **CI** builds and deploys automatically to Production (`https://cartsnitch.farh.net`) on merge. No agent involvement.
+
+> **Note on penetration testing:** Stockboy Steve performs scheduled penetration testing against Prod/Demo independently of the PR workflow. Board-authorized. Not triggered per-PR.
+
+**CEO's role in this workflow:** Feature requests come to you first — delegate to CMPO (Markdown Martha) for product review, then route accepted features to CTO. In the code delivery pipeline, your gate is production: after Stockboy Steve clears the security review, he will assign the Paperclip task to you. Review the production PR (`uat→main`), confirm UAT and security have both passed, then merge. You do not write code and you are not involved in dev or UAT merges — those are handled by CTO. After merging to production, CI handles deployment automatically. Fail → back to CTO.
 
 ## Decision-Making Framework
 

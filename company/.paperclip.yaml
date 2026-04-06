@@ -8,6 +8,7 @@ agents:
       config:
         dangerouslySkipPermissions: true
         model: "claude-sonnet-4-6"
+        timeoutSec: 3600
       type: "claude_local"
     runtime:
       heartbeat:
@@ -91,6 +92,7 @@ agents:
       config:
         dangerouslySkipPermissions: true
         model: "claude-sonnet-4-6"
+        timeoutSec: 3600
       type: "claude_local"
     runtime:
       heartbeat:
@@ -173,6 +175,7 @@ agents:
       config:
         dangerouslySkipPermissions: true
         model: "claude-sonnet-4-6"
+        timeoutSec: 3600
       type: "claude_local"
     runtime:
       heartbeat:
@@ -205,14 +208,101 @@ agents:
           default: "/secrets/cartsnitch/cartsnitch-ceo.pem"
           portability: "system_dependent"
           requirement: "optional"
+  deal-dottie:
+    role: "qa"
+    icon: "microscope"
+    capabilities: "User Acceptance Tester — validates features from an end-user perspective using browser automation before anything reaches production"
+    adapter:
+      config:
+        dangerouslySkipPermissions: true
+        extraArgs:
+          - "--mcp-config=/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/ff0b8079-5823-4c4f-ad40-6a5147246594/instructions/mcp.json"
+        model: "claude-haiku-4-5-20251001"
+        timeoutSec: 3600
+      type: "claude_local"
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 300
+        maxConcurrentRuns: 1
+    inputs:
+      env:
+        AGENT_HOME:
+          description: "Optional default for AGENT_HOME on agent deal-dottie"
+          kind: "plain"
+          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/ff0b8079-5823-4c4f-ad40-6a5147246594/instructions"
+          portability: "system_dependent"
+          requirement: "optional"
+        ANTHROPIC_AUTH_TOKEN:
+          description: "Optional default for ANTHROPIC_AUTH_TOKEN on agent deal-dottie"
+          kind: "secret"
+          default: ""
+          requirement: "optional"
+        ANTHROPIC_BASE_URL:
+          description: "Optional default for ANTHROPIC_BASE_URL on agent deal-dottie"
+          kind: "plain"
+          default: "https://api.minimax.io/anthropic"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_HAIKU_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent deal-dottie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_OPUS_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent deal-dottie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_SONNET_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent deal-dottie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_MODEL:
+          description: "Optional default for ANTHROPIC_MODEL on agent deal-dottie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_SMALL_FAST_MODEL:
+          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent deal-dottie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        API_TIMEOUT_MS:
+          description: "Optional default for API_TIMEOUT_MS on agent deal-dottie"
+          kind: "plain"
+          default: "3000000"
+          requirement: "optional"
+        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
+          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent deal-dottie"
+          kind: "plain"
+          default: "1"
+          requirement: "optional"
+        GITHUB_APP_ID:
+          description: "Optional default for GITHUB_APP_ID on agent deal-dottie"
+          kind: "plain"
+          default: "3140909"
+          requirement: "optional"
+        GITHUB_APP_INSTALLATION_ID:
+          description: "Optional default for GITHUB_APP_INSTALLATION_ID on agent deal-dottie"
+          kind: "plain"
+          default: "117772026"
+          requirement: "optional"
+        GITHUB_APP_PEM_FILE:
+          description: "Optional default for GITHUB_APP_PEM_FILE on agent deal-dottie"
+          kind: "plain"
+          default: "/secrets/cartsnitch/cartsnitch-qa.pem"
+          portability: "system_dependent"
+          requirement: "optional"
   markdown-martha:
     role: "cmo"
     icon: "target"
-    capabilities: "Leads all marketing initiatives, brand, content, and customer research. Owns public messaging and market positioning for CartSnitch."
+    capabilities: "Leads all marketing initiatives, brand, content, and customer research. Owns public messaging, market positioning, and product strategy for CartSnitch. First gate for all feature requests — reviews and accepts, backlogs, or denies incoming product requests before they reach engineering."
     adapter:
       config:
         dangerouslySkipPermissions: true
         model: "claude-haiku-4-5-20251001"
+        timeoutSec: 3600
       type: "claude_local"
     runtime:
       heartbeat:
@@ -253,89 +343,6 @@ agents:
           kind: "secret"
           default: ""
           requirement: "optional"
-  rollback-rhonda:
-    role: "qa"
-    icon: "microscope"
-    capabilities: "User Acceptance Tester — validates features from an end-user perspective using browser automation before anything reaches production"
-    adapter:
-      config:
-        dangerouslySkipPermissions: true
-        model: "claude-sonnet-4-6"
-      type: "claude_local"
-    runtime:
-      heartbeat:
-        enabled: true
-        intervalSec: 300
-        maxConcurrentRuns: 1
-    inputs:
-      env:
-        AGENT_HOME:
-          description: "Optional default for AGENT_HOME on agent rollback-rhonda"
-          kind: "plain"
-          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/1fc33bd9-308c-4abf-a355-87d12b6b0064/instructions"
-          portability: "system_dependent"
-          requirement: "optional"
-        ANTHROPIC_AUTH_TOKEN:
-          description: "Optional default for ANTHROPIC_AUTH_TOKEN on agent rollback-rhonda"
-          kind: "secret"
-          default: ""
-          requirement: "optional"
-        ANTHROPIC_BASE_URL:
-          description: "Optional default for ANTHROPIC_BASE_URL on agent rollback-rhonda"
-          kind: "plain"
-          default: "https://api.minimax.io/anthropic"
-          requirement: "optional"
-        ANTHROPIC_DEFAULT_HAIKU_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent rollback-rhonda"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_DEFAULT_OPUS_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent rollback-rhonda"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_DEFAULT_SONNET_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent rollback-rhonda"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_MODEL:
-          description: "Optional default for ANTHROPIC_MODEL on agent rollback-rhonda"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_SMALL_FAST_MODEL:
-          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent rollback-rhonda"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        API_TIMEOUT_MS:
-          description: "Optional default for API_TIMEOUT_MS on agent rollback-rhonda"
-          kind: "plain"
-          default: "3000000"
-          requirement: "optional"
-        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
-          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent rollback-rhonda"
-          kind: "plain"
-          default: "1"
-          requirement: "optional"
-        GITHUB_APP_ID:
-          description: "Optional default for GITHUB_APP_ID on agent rollback-rhonda"
-          kind: "plain"
-          default: "3140909"
-          requirement: "optional"
-        GITHUB_APP_INSTALLATION_ID:
-          description: "Optional default for GITHUB_APP_INSTALLATION_ID on agent rollback-rhonda"
-          kind: "plain"
-          default: "117772026"
-          requirement: "optional"
-        GITHUB_APP_PEM_FILE:
-          description: "Optional default for GITHUB_APP_PEM_FILE on agent rollback-rhonda"
-          kind: "plain"
-          default: "/secrets/cartsnitch/cartsnitch-qa.pem"
-          portability: "system_dependent"
-          requirement: "optional"
   savannah-savings:
     role: "cto"
     icon: "cpu"
@@ -344,6 +351,7 @@ agents:
       config:
         dangerouslySkipPermissions: true
         model: "claude-opus-4-6"
+        timeoutSec: 3600
       type: "claude_local"
     runtime:
       heartbeat:
@@ -376,17 +384,19 @@ agents:
           requirement: "optional"
   stockboy-steve:
     role: "engineer"
-    icon: "code"
-    capabilities: "Senior engineer focused on reliable feature implementation, bug fixes, and shipping production-quality code"
+    icon: "shield"
+    capabilities: "Security engineer responsible for security code review in the SDLC and scheduled penetration testing against Prod/Demo. Board-authorized for offensive security analysis of the CartSnitch production and demo environments."
     adapter:
       config:
         dangerouslySkipPermissions: true
         model: "claude-sonnet-4-6"
+        timeoutSec: 3600
       type: "claude_local"
     runtime:
       heartbeat:
         enabled: true
-        intervalSec: 300
+        intervalSec: 14400
+        maxConcurrentRuns: 1
     inputs:
       env:
         AGENT_HOME:
@@ -466,5 +476,5 @@ sidebar:
     - "savannah-savings"
     - "barcode-betty"
     - "checkout-charlie"
-    - "rollback-rhonda"
+    - "deal-dottie"
     - "stockboy-steve"

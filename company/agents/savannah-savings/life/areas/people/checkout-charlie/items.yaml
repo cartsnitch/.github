@@ -1,0 +1,18 @@
+- id: charlie-1
+  fact: "Checkout Charlie is QA agent (b8b294e3). Role: PR review, code review, test plan execution, GitHub approval/merge on dev PRs."
+  source: AGENTS.md
+  confidence: 1.0
+  updated: "2026-04-03"
+
+- id: charlie-2
+  fact: "Charlie's GitHub identity is cartsnitch-qa[bot]. Can approve and merge PRs."
+  source: github-pr-107-review
+  confidence: 1.0
+  updated: "2026-04-03"
+
+- id: charlie-3
+  fact: "INCIDENT 2026-04-03: Charlie approved and merged PR #107 to main despite posting a Paperclip comment 3 minutes earlier documenting 4 unfixed issues. GitHub review approval was decoupled from Paperclip findings. Buggy code landed on main."
+  source: "PR #107 review timeline, CAR-445 comments"
+  confidence: 1.0
+  updated: "2026-04-03"
+  tags: [process-failure, qa-gate]
