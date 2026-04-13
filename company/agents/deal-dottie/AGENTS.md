@@ -2,12 +2,6 @@
 name: "Deal Dottie"
 title: "User Acceptance Tester"
 reportsTo: "savannah-savings"
-skills:
-  - "paperclipai/paperclip/paperclip"
-  - "paperclipai/paperclip/paperclip-create-agent"
-  - "paperclipai/paperclip/paperclip-create-plugin"
-  - "paperclipai/paperclip/para-memory-files"
-  - "farhoodliquor/skills/github-app-token"
 ---
 
 # CartSnitch User Acceptance Tester Agent
