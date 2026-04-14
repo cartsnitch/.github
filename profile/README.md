@@ -14,7 +14,11 @@
 <h3 align="center">Save money on every grocery trip.</h3>
 
 <p align="center">
-  CartSnitch finds deals you'd miss. Never overpay for groceries again.
+  <strong>CartSnitch finds deals you'd miss. Never overpay for groceries again.</strong>
+</p>
+
+<p align="center">
+  We empower consumers to get the most value from what they spend at the grocery store.
 </p>
 
 <p align="center">
@@ -27,9 +31,15 @@
 
 ---
 
+## About CartSnitch
+
+CartSnitch is a real-time grocery savings platform that monitors prices and deals across your favorite grocery stores. Our mission is to empower every shopper to save money without sacrificing convenience.
+
+Save $50+ per month with deals you actually use. CartSnitch integrates with your shopping habits to surface relevant discounts, coupons, and price drops before you check out.
+
 ## How It Works
 
-CartSnitch monitors prices and deals across your favorite grocery stores in real time. Save $50+ per month with deals you actually use.
+CartSnitch monitors prices and deals across your favorite grocery stores in real time. Savings that matter, when they matter.
 
 ### For Shoppers
 - **Real-time deal alerts** — Never miss a sale on items you buy
@@ -37,14 +47,29 @@ CartSnitch monitors prices and deals across your favorite grocery stores in real
 - **Grocery tracking** — Monitor prices and plan your shopping
 
 ### For Developers
-CartSnitch is built on open, modern technology and welcomes community contributions. Explore our repositories:
+CartSnitch is built on modern, scalable technology and welcomes community contributions.
+
+#### Key Repositories
 
 | Repository | Purpose |
 |------------|---------|
-| [cartsnitch](https://github.com/cartsnitch/cartsnitch) | Main application |
-| [api](https://github.com/cartsnitch/api) | Backend API |
-| [common](https://github.com/cartsnitch/common) | Shared libraries |
-| [infra](https://github.com/cartsnitch/infra) | Infrastructure |
+| [cartsnitch](https://github.com/cartsnitch/cartsnitch) | Main application and consumer interface |
+| [api](https://github.com/cartsnitch/api) | Backend API and services |
+| [common](https://github.com/cartsnitch/common) | Shared libraries and utilities |
+| [infra](https://github.com/cartsnitch/infra) | Infrastructure and deployment |
+| [skills](https://github.com/cartsnitch/skills) | Custom skills and integrations |
+
+#### Tech Stack
+- **Backend**: Modern cloud-native architecture with CloudNativePG (Postgres)
+- **Cache**: DragonflyDB for high-performance caching
+- **Auth**: Better-Auth + OAuth2 with Authentik OIDC provider
+- **Secrets**: Bitnami Sealed Secrets for secure credential management
+- **Infrastructure**: Kubernetes-based deployments
+
+#### Getting Started
+- 📖 [Developer Documentation](https://cartsnitch.farh.net/docs)
+- 🤝 [Contributing Guidelines](https://github.com/cartsnitch/.github/blob/main/CONTRIBUTING.md)
+- 💬 [Community Discussions](https://github.com/orgs/cartsnitch/discussions)
 
 ---
 
