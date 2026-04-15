@@ -51,6 +51,15 @@ How I operate and patterns I've learned.
 - Each delegated task: 1 file change, exact repo/branch/path, step-by-step, no ambiguity
 - Include full context in every task — don't assume delegate has context from previous tasks
 
+## QA Handoff Lessons (2026-04-14)
+
+- Charlie (QA) uses Playwright browser tools — cannot run unit tests or CLI commands
+- Engineering task descriptions are NOT QA briefs. Always write a separate QA section when creating tasks that will need QA review.
+- QA brief MUST include: (1) PR URL, (2) numbered test steps with explicit PASS criteria per step, (3) On FAIL → reassign to Betty, On PASS → hand off to CTO
+- Frame QA steps as code review checks (open file in diff, verify X is present), NOT test execution
+- Three tasks bounced (CAR-557, CAR-576, CAR-579) because original descriptions were engineer-oriented with no QA-ready steps
+- Best pattern: engineer opens PR and comments with URL → CTO writes QA brief with the PR URL and reassigns to Charlie
+
 ## Playwright MCP
 
 - Correct Playwright URL for CartSnitch: `http://playwright-cartsnitch:8931/sse` (NOT `http://playwright:8931/mcp`)

@@ -10,6 +10,9 @@ skills:
   - "farhoodliquor/skills/github-app-token"
   - "fluxcd/agent-skills/gitops-repo-audit"
   - "fluxcd/agent-skills/gitops-knowledge"
+  - "better-auth/skills/better-auth-security-best-practices"
+  - "better-auth/skills/better-auth-best-practices"
+  - "better-auth/skills/email-and-password-best-practices"
 ---
 
 # CartSnitch CTO Agent

@@ -6,7 +6,7 @@ metadata:
   sources:
     -
       kind: "github-dir"
-      commit: "1a6af44a736c0202a8e7ca332c4681ac9badca5e"
+      commit: "3563f311db2e14660edab66583b8f5dc04fbc72e"
       path: "github-app-token"
       repo: "farhoodliquor/skills"
       trackingRef: "main"

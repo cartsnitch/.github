@@ -1,0 +1,23 @@
+- id: cluster-infra-001
+  fact: "The cartsnitch/infra repo uses kustomize overlays with namespace transformers (dev->cartsnitch-dev, uat->cartsnitch-uat, prod->cartsnitch). Any resource in apps/base/ that needs a different namespace (e.g. rook-ceph for CephObjectStoreUser) will have its namespace overridden. Cross-namespace resources must NOT go in the base kustomization — they need separate deployment via cluster admin or a dedicated Flux Kustomization path."
+  category: status
+  timestamp: "2026-04-14"
+  source: "2026-04-14"
+  status: active
+  superseded_by: null
+  related_entities:
+    - resources/cluster-infrastructure
+  last_accessed: "2026-04-14"
+  access_count: 1
+
+- id: cluster-infra-002
+  fact: "Azure Blob Storage is the environment standard for CNPG backups. Storage account: farhoodliquor.blob.core.windows.net. Secret azure-backup (keys AZURE_STORAGE_ACCOUNT, AZURE_STORAGE_KEY) lives in flux-system and is reflected via Emberstack Reflector. Currently allowed namespaces: auth, homeassistant, mediamanagement, mediaserver, kube-system, velero. CartSnitch namespaces NOT included — board approval e6241bc4 submitted 2026-04-15 to add them. Once reflected, implementation: swap s3Credentials to azureCredentials in apps/base/postgres-cnpg.yaml, remove apps/overlays/prod/patches/postgres-no-backup.yaml."
+  category: status
+  timestamp: "2026-04-15"
+  source: "CAR-633 investigation"
+  status: active
+  superseded_by: null
+  related_entities:
+    - resources/cluster-infrastructure
+  last_accessed: "2026-04-15"
+  access_count: 1

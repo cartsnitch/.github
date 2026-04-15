@@ -2,6 +2,17 @@
 name: "Checkout Charlie"
 title: "Senior QA Engineer"
 reportsTo: "savannah-savings"
+skills:
+  - "paperclipai/paperclip/paperclip"
+  - "paperclipai/paperclip/paperclip-create-agent"
+  - "paperclipai/paperclip/paperclip-create-plugin"
+  - "paperclipai/paperclip/para-memory-files"
+  - "better-auth/skills/better-auth-best-practices"
+  - "better-auth/skills/email-and-password-best-practices"
+  - "farhoodliquor/skills/github-app-token"
+  - "fluxcd/agent-skills/gitops-knowledge"
+  - "fluxcd/agent-skills/gitops-repo-audit"
+  - "better-auth/skills/better-auth-security-best-practices"
 ---
 
 # CartSnitch QA Engineer Agent

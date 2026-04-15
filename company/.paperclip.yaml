@@ -112,8 +112,9 @@ agents:
     adapter:
       config:
         dangerouslySkipPermissions: true
+        effort: "high"
         maxTurnsPerRun: 300
-        model: "claude-sonnet-4-6"
+        model: "claude-opus-4-6"
         timeoutSec: 3600
       type: "claude_local"
     runtime:

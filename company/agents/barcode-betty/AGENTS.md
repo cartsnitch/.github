@@ -2,6 +2,17 @@
 name: "Barcode Betty"
 title: "Principal Engineer"
 reportsTo: "savannah-savings"
+skills:
+  - "paperclipai/paperclip/paperclip"
+  - "paperclipai/paperclip/paperclip-create-agent"
+  - "paperclipai/paperclip/paperclip-create-plugin"
+  - "paperclipai/paperclip/para-memory-files"
+  - "better-auth/skills/better-auth-best-practices"
+  - "better-auth/skills/better-auth-security-best-practices"
+  - "better-auth/skills/create-auth-skill"
+  - "better-auth/skills/email-and-password-best-practices"
+  - "farhoodliquor/skills/github-app-token"
+  - "fluxcd/agent-skills/gitops-knowledge"
 ---
 
 # CartSnitch Engineer Agent
