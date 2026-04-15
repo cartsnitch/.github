@@ -54,10 +54,9 @@ CartSnitch is built on modern, scalable technology and welcomes community contri
 | Repository | Purpose |
 |------------|---------|
 | [cartsnitch](https://github.com/cartsnitch/cartsnitch) | Main application and consumer interface |
-| [api](https://github.com/cartsnitch/api) | Backend API and services |
-| [common](https://github.com/cartsnitch/common) | Shared libraries and utilities |
-| [infra](https://github.com/cartsnitch/infra) | Infrastructure and deployment |
-| [skills](https://github.com/cartsnitch/skills) | Custom skills and integrations |
+| [.github](https://github.com/cartsnitch/.github) | Organization health files and CI/CD workflows |
+| [cartsnitch.github.io](https://github.com/cartsnitch/cartsnitch.github.io) | Public website and documentation |
+| [skills](https://github.com/cartsnitch/skills) | Paperclip agent skills and integrations |
 
 #### Tech Stack
 - **Backend**: Modern cloud-native architecture with CloudNativePG (Postgres)
