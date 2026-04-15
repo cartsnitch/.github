@@ -7,12 +7,11 @@ agents:
     adapter:
       config:
         dangerouslySkipPermissions: true
-        model: "claude-sonnet-4-6"
+        model: "minimax/MiniMax-M2.7"
         timeoutSec: 3600
-      type: "claude_local"
+      type: "opencode_local"
     runtime:
       heartbeat:
-        enabled: true
         intervalSec: 14400
         maxConcurrentRuns: 1
     inputs:
@@ -33,40 +32,10 @@ agents:
           kind: "plain"
           default: "https://api.minimax.io/anthropic"
           requirement: "optional"
-        ANTHROPIC_DEFAULT_HAIKU_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent barcode-betty"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_DEFAULT_OPUS_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent barcode-betty"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_DEFAULT_SONNET_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent barcode-betty"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
         ANTHROPIC_MODEL:
           description: "Optional default for ANTHROPIC_MODEL on agent barcode-betty"
           kind: "plain"
           default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_SMALL_FAST_MODEL:
-          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent barcode-betty"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        API_TIMEOUT_MS:
-          description: "Optional default for API_TIMEOUT_MS on agent barcode-betty"
-          kind: "plain"
-          default: "3000000"
-          requirement: "optional"
-        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
-          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent barcode-betty"
-          kind: "plain"
-          default: "1"
           requirement: "optional"
         GITHUB_APP_ID:
           description: "Optional default for GITHUB_APP_ID on agent barcode-betty"
@@ -91,12 +60,11 @@ agents:
     adapter:
       config:
         dangerouslySkipPermissions: true
-        model: "claude-sonnet-4-6"
+        model: "minimax/MiniMax-M2.7"
         timeoutSec: 3600
-      type: "claude_local"
+      type: "opencode_local"
     runtime:
       heartbeat:
-        enabled: true
         intervalSec: 14400
         maxConcurrentRuns: 1
     inputs:
@@ -117,40 +85,10 @@ agents:
           kind: "plain"
           default: "https://api.minimax.io/anthropic"
           requirement: "optional"
-        ANTHROPIC_DEFAULT_HAIKU_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent checkout-charlie"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_DEFAULT_OPUS_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent checkout-charlie"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_DEFAULT_SONNET_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent checkout-charlie"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
         ANTHROPIC_MODEL:
           description: "Optional default for ANTHROPIC_MODEL on agent checkout-charlie"
           kind: "plain"
           default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_SMALL_FAST_MODEL:
-          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent checkout-charlie"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        API_TIMEOUT_MS:
-          description: "Optional default for API_TIMEOUT_MS on agent checkout-charlie"
-          kind: "plain"
-          default: "3000000"
-          requirement: "optional"
-        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
-          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent checkout-charlie"
-          kind: "plain"
-          default: "1"
           requirement: "optional"
         GITHUB_APP_ID:
           description: "Optional default for GITHUB_APP_ID on agent checkout-charlie"
@@ -174,12 +112,13 @@ agents:
     adapter:
       config:
         dangerouslySkipPermissions: true
-        model: "claude-sonnet-4-6"
+        effort: "high"
+        maxTurnsPerRun: 300
+        model: "claude-opus-4-6"
         timeoutSec: 3600
       type: "claude_local"
     runtime:
       heartbeat:
-        enabled: true
         intervalSec: 28800
         maxConcurrentRuns: 1
     permissions:
@@ -214,15 +153,11 @@ agents:
     capabilities: "User Acceptance Tester — validates features from an end-user perspective using browser automation before anything reaches production"
     adapter:
       config:
-        dangerouslySkipPermissions: true
-        extraArgs:
-          - "--mcp-config=/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/ff0b8079-5823-4c4f-ad40-6a5147246594/instructions/mcp.json"
-        model: "claude-haiku-4-5-20251001"
+        model: "claude-sonnet-4-6"
         timeoutSec: 3600
       type: "claude_local"
     runtime:
       heartbeat:
-        enabled: true
         intervalSec: 300
         maxConcurrentRuns: 1
     inputs:
@@ -301,12 +236,12 @@ agents:
     adapter:
       config:
         dangerouslySkipPermissions: true
+        maxTurnsPerRun: 300
         model: "claude-haiku-4-5-20251001"
         timeoutSec: 3600
       type: "claude_local"
     runtime:
       heartbeat:
-        enabled: true
         intervalSec: 14400
         maxConcurrentRuns: 1
     inputs:
@@ -350,12 +285,12 @@ agents:
     adapter:
       config:
         dangerouslySkipPermissions: true
+        maxTurnsPerRun: 300
         model: "claude-opus-4-6"
         timeoutSec: 3600
       type: "claude_local"
     runtime:
       heartbeat:
-        enabled: true
         intervalSec: 14400
         maxConcurrentRuns: 1
     inputs:
@@ -389,12 +324,11 @@ agents:
     adapter:
       config:
         dangerouslySkipPermissions: true
-        model: "claude-sonnet-4-6"
+        model: "minimax/MiniMax-M2.7"
         timeoutSec: 3600
-      type: "claude_local"
+      type: "opencode_local"
     runtime:
       heartbeat:
-        enabled: true
         intervalSec: 14400
         maxConcurrentRuns: 1
     inputs:
@@ -415,40 +349,10 @@ agents:
           kind: "plain"
           default: "https://api.minimax.io/anthropic"
           requirement: "optional"
-        ANTHROPIC_DEFAULT_HAIKU_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent stockboy-steve"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_DEFAULT_OPUS_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent stockboy-steve"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_DEFAULT_SONNET_MODEL:
-          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent stockboy-steve"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
         ANTHROPIC_MODEL:
           description: "Optional default for ANTHROPIC_MODEL on agent stockboy-steve"
           kind: "plain"
           default: "MiniMax-M2.7"
-          requirement: "optional"
-        ANTHROPIC_SMALL_FAST_MODEL:
-          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent stockboy-steve"
-          kind: "plain"
-          default: "MiniMax-M2.7"
-          requirement: "optional"
-        API_TIMEOUT_MS:
-          description: "Optional default for API_TIMEOUT_MS on agent stockboy-steve"
-          kind: "plain"
-          default: "3000000"
-          requirement: "optional"
-        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
-          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent stockboy-steve"
-          kind: "plain"
-          default: "1"
           requirement: "optional"
         GITHUB_APP_ID:
           description: "Optional default for GITHUB_APP_ID on agent stockboy-steve"
