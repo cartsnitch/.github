@@ -6,24 +6,19 @@ agents:
     capabilities: "Principal engineer responsible for core product engineering. Designs and implements features that help consumers maximize grocery savings."
     adapter:
       config:
-        dangerouslySkipPermissions: true
-        model: "minimax/MiniMax-M2.7"
+        graceSec: 15
+        serviceAccountName: "cartsnitch-developer"
         timeoutSec: 3600
-      type: "opencode_local"
+      type: "claude_k8s"
     runtime:
       heartbeat:
+        enabled: true
         intervalSec: 14400
         maxConcurrentRuns: 1
     inputs:
       env:
-        AGENT_HOME:
-          description: "Optional default for AGENT_HOME on agent barcode-betty"
-          kind: "plain"
-          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/71f37521-8e62-4d27-bd9c-cfd52b5b3a07/instructions"
-          portability: "system_dependent"
-          requirement: "optional"
         ANTHROPIC_AUTH_TOKEN:
-          description: "Optional default for ANTHROPIC_AUTH_TOKEN on agent barcode-betty"
+          description: "Provide ANTHROPIC_AUTH_TOKEN for agent barcode-betty"
           kind: "secret"
           default: ""
           requirement: "optional"
@@ -32,10 +27,40 @@ agents:
           kind: "plain"
           default: "https://api.minimax.io/anthropic"
           requirement: "optional"
+        ANTHROPIC_DEFAULT_HAIKU_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent barcode-betty"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_OPUS_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent barcode-betty"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_SONNET_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent barcode-betty"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
         ANTHROPIC_MODEL:
           description: "Optional default for ANTHROPIC_MODEL on agent barcode-betty"
           kind: "plain"
           default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_SMALL_FAST_MODEL:
+          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent barcode-betty"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        API_TIMEOUT_MS:
+          description: "Optional default for API_TIMEOUT_MS on agent barcode-betty"
+          kind: "plain"
+          default: "3000000"
+          requirement: "optional"
+        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
+          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent barcode-betty"
+          kind: "plain"
+          default: "1"
           requirement: "optional"
         GITHUB_APP_ID:
           description: "Optional default for GITHUB_APP_ID on agent barcode-betty"
@@ -53,30 +78,30 @@ agents:
           default: "/secrets/cartsnitch/cartsnitch-engineer.pem"
           portability: "system_dependent"
           requirement: "optional"
+        HOME:
+          description: "Optional default for HOME on agent barcode-betty"
+          kind: "plain"
+          default: "$AGENT_HOME"
+          requirement: "optional"
   checkout-charlie:
     role: "qa"
     icon: "bug"
     capabilities: "Senior QA engineer responsible for test strategy, quality assurance, and release validation. Ensures the product reliably delivers value to grocery shoppers."
     adapter:
       config:
-        dangerouslySkipPermissions: true
-        model: "minimax/MiniMax-M2.7"
+        graceSec: 15
+        serviceAccountName: "cartsnitch-developer"
         timeoutSec: 3600
-      type: "opencode_local"
+      type: "claude_k8s"
     runtime:
       heartbeat:
+        enabled: true
         intervalSec: 14400
         maxConcurrentRuns: 1
     inputs:
       env:
-        AGENT_HOME:
-          description: "Optional default for AGENT_HOME on agent checkout-charlie"
-          kind: "plain"
-          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/b8b294e3-a12d-4bff-b321-6f020792b21c/instructions"
-          portability: "system_dependent"
-          requirement: "optional"
         ANTHROPIC_AUTH_TOKEN:
-          description: "Optional default for ANTHROPIC_AUTH_TOKEN on agent checkout-charlie"
+          description: "Provide ANTHROPIC_AUTH_TOKEN for agent checkout-charlie"
           kind: "secret"
           default: ""
           requirement: "optional"
@@ -85,10 +110,40 @@ agents:
           kind: "plain"
           default: "https://api.minimax.io/anthropic"
           requirement: "optional"
+        ANTHROPIC_DEFAULT_HAIKU_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent checkout-charlie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_OPUS_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent checkout-charlie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_SONNET_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent checkout-charlie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
         ANTHROPIC_MODEL:
           description: "Optional default for ANTHROPIC_MODEL on agent checkout-charlie"
           kind: "plain"
           default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_SMALL_FAST_MODEL:
+          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent checkout-charlie"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        API_TIMEOUT_MS:
+          description: "Optional default for API_TIMEOUT_MS on agent checkout-charlie"
+          kind: "plain"
+          default: "3000000"
+          requirement: "optional"
+        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
+          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent checkout-charlie"
+          kind: "plain"
+          default: "1"
           requirement: "optional"
         GITHUB_APP_ID:
           description: "Optional default for GITHUB_APP_ID on agent checkout-charlie"
@@ -106,17 +161,21 @@ agents:
           default: "/secrets/cartsnitch/cartsnitch-qa.pem"
           portability: "system_dependent"
           requirement: "optional"
+        HOME:
+          description: "Optional default for HOME on agent checkout-charlie"
+          kind: "plain"
+          default: "$AGENT_HOME"
+          requirement: "optional"
   coupon-carl:
     role: "ceo"
     icon: "crown"
     adapter:
       config:
-        dangerouslySkipPermissions: true
-        effort: "high"
-        maxTurnsPerRun: 300
-        model: "claude-opus-4-6"
+        graceSec: 15
+        model: "claude-sonnet-4-6"
+        serviceAccountName: "cartsnitch-developer"
         timeoutSec: 3600
-      type: "claude_local"
+      type: "claude_k8s"
     runtime:
       heartbeat:
         intervalSec: 28800
@@ -125,12 +184,6 @@ agents:
       canCreateAgents: true
     inputs:
       env:
-        AGENT_HOME:
-          description: "Optional default for AGENT_HOME on agent coupon-carl"
-          kind: "plain"
-          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/f2395b62-cb26-4595-b026-d506fde1c2c1/instructions"
-          portability: "system_dependent"
-          requirement: "optional"
         GITHUB_APP_ID:
           description: "Optional default for GITHUB_APP_ID on agent coupon-carl"
           kind: "plain"
@@ -147,29 +200,30 @@ agents:
           default: "/secrets/cartsnitch/cartsnitch-ceo.pem"
           portability: "system_dependent"
           requirement: "optional"
+        HOME:
+          description: "Optional default for HOME on agent coupon-carl"
+          kind: "plain"
+          default: "$AGENT_HOME"
+          requirement: "optional"
   deal-dottie:
     role: "qa"
     icon: "microscope"
     capabilities: "User Acceptance Tester — validates features from an end-user perspective using browser automation before anything reaches production"
     adapter:
       config:
-        model: "claude-sonnet-4-6"
+        graceSec: 15
+        serviceAccountName: "cartsnitch-developer"
         timeoutSec: 3600
-      type: "claude_local"
+      type: "claude_k8s"
     runtime:
       heartbeat:
-        intervalSec: 300
+        enabled: true
+        intervalSec: 14400
         maxConcurrentRuns: 1
     inputs:
       env:
-        AGENT_HOME:
-          description: "Optional default for AGENT_HOME on agent deal-dottie"
-          kind: "plain"
-          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/ff0b8079-5823-4c4f-ad40-6a5147246594/instructions"
-          portability: "system_dependent"
-          requirement: "optional"
         ANTHROPIC_AUTH_TOKEN:
-          description: "Optional default for ANTHROPIC_AUTH_TOKEN on agent deal-dottie"
+          description: "Provide ANTHROPIC_AUTH_TOKEN for agent deal-dottie"
           kind: "secret"
           default: ""
           requirement: "optional"
@@ -229,29 +283,28 @@ agents:
           default: "/secrets/cartsnitch/cartsnitch-qa.pem"
           portability: "system_dependent"
           requirement: "optional"
+        HOME:
+          description: "Optional default for HOME on agent deal-dottie"
+          kind: "plain"
+          default: "$AGENT_HOME"
+          requirement: "optional"
   markdown-martha:
     role: "cmo"
     icon: "target"
     capabilities: "Leads all marketing initiatives, brand, content, and customer research. Owns public messaging, market positioning, and product strategy for CartSnitch. First gate for all feature requests — reviews and accepts, backlogs, or denies incoming product requests before they reach engineering."
     adapter:
       config:
-        dangerouslySkipPermissions: true
-        maxTurnsPerRun: 300
+        graceSec: 15
         model: "claude-haiku-4-5-20251001"
+        serviceAccountName: "cartsnitch-developer"
         timeoutSec: 3600
-      type: "claude_local"
+      type: "claude_k8s"
     runtime:
       heartbeat:
         intervalSec: 14400
         maxConcurrentRuns: 1
     inputs:
       env:
-        AGENT_HOME:
-          description: "Optional default for AGENT_HOME on agent markdown-martha"
-          kind: "plain"
-          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/9becc57b-c4a8-4420-9f73-c037ba26b410/instructions"
-          portability: "system_dependent"
-          requirement: "optional"
         GITHUB_APP_ID:
           description: "Optional default for GITHUB_APP_ID on agent markdown-martha"
           kind: "plain"
@@ -268,13 +321,18 @@ agents:
           default: "/secrets/cartsnitch/cartsnitch-engineer.pem"
           portability: "system_dependent"
           requirement: "optional"
+        HOME:
+          description: "Optional default for HOME on agent markdown-martha"
+          kind: "plain"
+          default: "$AGENT_HOME"
+          requirement: "optional"
         MINIMAX_API_HOST:
           description: "Optional default for MINIMAX_API_HOST on agent markdown-martha"
           kind: "plain"
           default: "https://api.minimax.io"
           requirement: "optional"
         MINIMAX_API_KEY:
-          description: "Optional default for MINIMAX_API_KEY on agent markdown-martha"
+          description: "Provide MINIMAX_API_KEY for agent markdown-martha"
           kind: "secret"
           default: ""
           requirement: "optional"
@@ -284,23 +342,17 @@ agents:
     capabilities: "Owns technical roadmap, system architecture, engineering execution, and code quality. First engineer. Builds the product that helps consumers get the most value from grocery spending."
     adapter:
       config:
-        dangerouslySkipPermissions: true
-        maxTurnsPerRun: 300
+        graceSec: 15
         model: "claude-opus-4-6"
+        serviceAccountName: "cartsnitch-developer"
         timeoutSec: 3600
-      type: "claude_local"
+      type: "claude_k8s"
     runtime:
       heartbeat:
         intervalSec: 14400
         maxConcurrentRuns: 1
     inputs:
       env:
-        AGENT_HOME:
-          description: "Optional default for AGENT_HOME on agent savannah-savings"
-          kind: "plain"
-          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/22731e25-f40f-48bd-a16e-28e1bbef5946/instructions"
-          portability: "system_dependent"
-          requirement: "optional"
         GITHUB_APP_ID:
           description: "Optional default for GITHUB_APP_ID on agent savannah-savings"
           kind: "plain"
@@ -317,30 +369,29 @@ agents:
           default: "/secrets/cartsnitch/cartsnitch-cto.pem"
           portability: "system_dependent"
           requirement: "optional"
+        HOME:
+          description: "Optional default for HOME on agent savannah-savings"
+          kind: "plain"
+          default: "$AGENT_HOME"
+          requirement: "optional"
   stockboy-steve:
     role: "engineer"
     icon: "shield"
     capabilities: "Security engineer responsible for security code review in the SDLC and scheduled penetration testing against Prod/Demo. Board-authorized for offensive security analysis of the CartSnitch production and demo environments."
     adapter:
       config:
-        dangerouslySkipPermissions: true
-        model: "minimax/MiniMax-M2.7"
+        graceSec: 15
+        serviceAccountName: "cartsnitch-developer"
         timeoutSec: 3600
-      type: "opencode_local"
+      type: "claude_k8s"
     runtime:
       heartbeat:
         intervalSec: 14400
         maxConcurrentRuns: 1
     inputs:
       env:
-        AGENT_HOME:
-          description: "Optional default for AGENT_HOME on agent stockboy-steve"
-          kind: "plain"
-          default: "/paperclip/instances/default/companies/52204f8e-f1cc-4f45-b5bf-455ccefee08d/agents/01dfbf79-c93d-4224-a7d9-05b2779e425e/instructions"
-          portability: "system_dependent"
-          requirement: "optional"
         ANTHROPIC_AUTH_TOKEN:
-          description: "Optional default for ANTHROPIC_AUTH_TOKEN on agent stockboy-steve"
+          description: "Provide ANTHROPIC_AUTH_TOKEN for agent stockboy-steve"
           kind: "secret"
           default: ""
           requirement: "optional"
@@ -349,10 +400,40 @@ agents:
           kind: "plain"
           default: "https://api.minimax.io/anthropic"
           requirement: "optional"
+        ANTHROPIC_DEFAULT_HAIKU_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_HAIKU_MODEL on agent stockboy-steve"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_OPUS_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_OPUS_MODEL on agent stockboy-steve"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_DEFAULT_SONNET_MODEL:
+          description: "Optional default for ANTHROPIC_DEFAULT_SONNET_MODEL on agent stockboy-steve"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
         ANTHROPIC_MODEL:
           description: "Optional default for ANTHROPIC_MODEL on agent stockboy-steve"
           kind: "plain"
           default: "MiniMax-M2.7"
+          requirement: "optional"
+        ANTHROPIC_SMALL_FAST_MODEL:
+          description: "Optional default for ANTHROPIC_SMALL_FAST_MODEL on agent stockboy-steve"
+          kind: "plain"
+          default: "MiniMax-M2.7"
+          requirement: "optional"
+        API_TIMEOUT_MS:
+          description: "Optional default for API_TIMEOUT_MS on agent stockboy-steve"
+          kind: "plain"
+          default: "3000000"
+          requirement: "optional"
+        CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC:
+          description: "Optional default for CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC on agent stockboy-steve"
+          kind: "plain"
+          default: "1"
           requirement: "optional"
         GITHUB_APP_ID:
           description: "Optional default for GITHUB_APP_ID on agent stockboy-steve"
@@ -369,6 +450,11 @@ agents:
           kind: "plain"
           default: "/secrets/cartsnitch/cartsnitch-engineer.pem"
           portability: "system_dependent"
+          requirement: "optional"
+        HOME:
+          description: "Optional default for HOME on agent stockboy-steve"
+          kind: "plain"
+          default: "$AGENT_HOME"
           requirement: "optional"
 company:
   brandColor: "#0061ff"
