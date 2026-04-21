@@ -7,7 +7,6 @@ skills:
   - "paperclipai/paperclip/paperclip-create-agent"
   - "paperclipai/paperclip/paperclip-create-plugin"
   - "paperclipai/paperclip/para-memory-files"
-  - "better-auth/skills/better-auth-security-best-practices"
   - "farhoodliquor/skills/github-app-token"
 ---
 
