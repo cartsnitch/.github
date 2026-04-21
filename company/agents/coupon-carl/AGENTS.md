@@ -6,6 +6,10 @@ skills:
   - "paperclipai/paperclip/paperclip-create-plugin"
   - "paperclipai/paperclip/para-memory-files"
   - "farhoodliquor/skills/github-app-token"
+  - "better-auth/skills/better-auth-best-practices"
+  - "better-auth/skills/better-auth-security-best-practices"
+  - "fluxcd/agent-skills/gitops-repo-audit"
+  - "fluxcd/agent-skills/gitops-knowledge"
 ---
 
 # CartSnitch CEO Agent
